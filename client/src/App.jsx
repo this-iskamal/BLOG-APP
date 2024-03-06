@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 import Header from "./components/Header";
 import SignIn from "./pages/Signin";
+import Footer from "./components/Footer";
 
 
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
