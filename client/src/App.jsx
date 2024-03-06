@@ -10,8 +10,6 @@ import Header from "./components/Header";
 import SignIn from "./pages/Signin";
 import Footer from "./components/Footer";
 
-
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -21,7 +19,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path='/sign-in' element={<SignIn />} />
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
