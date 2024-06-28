@@ -121,6 +121,10 @@ function DashProfile() {
       setUpdateUserError(error.message);
     }
   };
+  const handledeleteaccount = async () => {
+    
+  }
+  const handlesignout = async () => {}
 
   return (
     <div>
@@ -201,8 +205,8 @@ function DashProfile() {
         </Button>
       </form>
       <div className="text-red-500 flex justify-between mt-5">
-        <span className="cursor-pointer">Delete Account</span>
-        <span className="cursor-pointer">Sign Out</span>
+        <span className="cursor-pointer" onClick={handledeleteaccount}>Delete Account</span>
+        <span className="cursor-pointer" onClick={handlesignout}>Sign Out</span>
       </div>
       {
         updateUserSuccess && (
