@@ -4,8 +4,12 @@ import { HiArrowSmRight, HiUser } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signOutSuccess } from "../redux/user/userSlice";
+import { useSelector } from "react-redux";
 
 function DashSidebar() {
+  const { currentUser, errorMessage, loading } = useSelector(
+    (state) => state.user
+  );
   const location = useLocation();
   const [tab, setTab] = useState("");
   const dispatch = useDispatch();
@@ -43,7 +47,7 @@ function DashSidebar() {
               active={tab === "profile"}
               className="cursor-pointer"
               icon={HiUser}
-              label={"User"}
+              label={currentUser&&currentUser.isAdmin ? "Admin":"User"}
               labelColor="dark"
               as="div"
             >
