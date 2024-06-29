@@ -17,13 +17,14 @@ import {
   deleteUserFailure,
   deleteUserSuccess,
   deleteUserStart,
+  signOutSuccess
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { set } from "mongoose";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 
 function DashProfile() {
-  const { currentUser,errorMessage } = useSelector((state) => state.user);
+  const { currentUser, errorMessage } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -144,7 +145,21 @@ function DashProfile() {
     }
   };
 
-  const handlesignout = async () => {};
+  const handlesignout = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signOutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div>
