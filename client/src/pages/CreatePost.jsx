@@ -101,7 +101,7 @@ function CreatePost() {
           />
           <Select
             onChange={(e) =>
-              setFormData({ ...formData, catefory: e.target.value })
+              setFormData({ ...formData, category: e.target.value })
             }
           >
             <option value="uncategorized">Select a category</option>
