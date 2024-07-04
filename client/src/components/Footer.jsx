@@ -1,9 +1,13 @@
 import { Footer } from "flowbite-react";
-import React from "react";
 import { Link } from "react-router-dom";
-import { BsFacebook, BsInstagram, BsTwitter, BsGithub } from "react-icons/bs";
-
-function FooterCom() {
+import {
+  BsFacebook,
+  BsInstagram,
+  BsTwitter,
+  BsGithub,
+  BsDribbble,
+} from "react-icons/bs";
+export default function FooterCom() {
   return (
     <Footer container className="border border-t-8 border-teal-500">
       <div className="w-full max-w-7xl mx-auto">
@@ -19,38 +23,36 @@ function FooterCom() {
               Blog
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-8  mt-4 sm:grid-cols-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
               <Footer.Title title="About" />
               <Footer.LinkGroup col>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
-                  Kamal's Blog
-                </Footer.Link>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
+                <Footer.Link
+                  href="/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Kamal's Blog
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="About" />
+              <Footer.Title title="Follow us" />
               <Footer.LinkGroup col>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
-                  Kamal's Blog
-                </Footer.Link>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
-                  Kamal's Blog
+                <Footer.Link
+                  href="https://github.com/this-iskamal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="About" />
+              <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
-                  Kamal's Blog
-                </Footer.Link>
-                <Footer.Link href="/" target="_blank" rel="noopener noreferrer">
-                  Kamal's Blog
-                </Footer.Link>
+                <Footer.Link href="#">Privacy Policy</Footer.Link>
+                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
@@ -59,19 +61,26 @@ function FooterCom() {
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright
             href="#"
-            by="Kamal's Blog"
+            by="Kamal's blog"
             year={new Date().getFullYear()}
           />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsGithub} />
-            <Footer.Icon href="#" icon={BsTwitter} />
+            <Footer.Icon
+              href="https://www.facebook.com/kamalgautam36808/"
+              icon={BsFacebook}
+            />
+            <Footer.Icon
+              href="https://www.instagram.com/ka_mal_gau_tam/"
+              icon={BsInstagram}
+            />
+            <Footer.Icon href="https://x.com/Gautam_Kamal_" icon={BsTwitter} />
+            <Footer.Icon
+              href="https://github.com/this-iskamal"
+              icon={BsGithub}
+            />
           </div>
         </div>
       </div>
     </Footer>
   );
 }
-
-export default FooterCom;
