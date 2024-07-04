@@ -1,5 +1,5 @@
-import React, { useEffect,useState } from "react";
-import { Link, useLocation , useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Avatar,
   Button,
@@ -23,15 +23,14 @@ export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
   const [searchTerm, setSearchTerm] = useState("");
-  
 
-  useEffect(()=>{
-    const urlParams = new URLSearchParams(location.search)
-    const searchTermFromUrl = urlParams.get("searchTerm")
-    if(searchTermFromUrl){
-      setSearchTerm(searchTermFromUrl)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get("searchTerm");
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
     }
-  },[location.search])
+  }, [location.search]);
 
   const handlesignout = async () => {
     try {
@@ -49,14 +48,13 @@ export default function Header() {
     }
   };
 
-  const handlesubmit = (e) =>{
+  const handlesubmit = (e) => {
     e.preventDefault();
-    const urlParams  = new URLSearchParams(location.search)
-    urlParams.set("searchTerm",searchTerm)
-    const searchQuery = urlParams.toString()
-    navigate(`/search?${searchQuery}`)
-
-  }
+    const urlParams = new URLSearchParams(location.search);
+    urlParams.set("searchTerm", searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  };
 
   return (
     <Navbar className="border-b-2">
@@ -109,9 +107,11 @@ export default function Header() {
                   {currentUser.email}
                 </span>
               </Dropdown.Header>
-              <Link to={"/dashboard?tab=dash"}>
-                <Dropdown.Item>Dashboard</Dropdown.Item>
-              </Link>
+              {currentUser.isAdmin && (
+                <Link to={"/dashboard?tab=dash"}>
+                  <Dropdown.Item>Dashboard</Dropdown.Item>
+                </Link>
+              )}
               <Link to={"/dashboard?tab=profile"}>
                 <Dropdown.Item>Profile</Dropdown.Item>
               </Link>
