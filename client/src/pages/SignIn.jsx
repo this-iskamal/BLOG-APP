@@ -40,7 +40,7 @@ export default function SignIn() {
 
       if (res.ok) {
         dispatch(signInSuccess(data));
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       dispatch(signInFailure(error.message));
