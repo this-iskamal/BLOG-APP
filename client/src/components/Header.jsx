@@ -66,7 +66,7 @@ export default function Header() {
           pill
           onClick={() => dispatch(toggleTheme())}
         >
-          {theme === "light" ?<FaSun /> :<FaMoon /> }
+          {theme === "light" ? <FaSun /> : <FaMoon />}
         </Button>
 
         {currentUser ? (
@@ -86,11 +86,14 @@ export default function Header() {
                   {currentUser.email}
                 </span>
               </Dropdown.Header>
-              <Link to={"/dashboard?Tab=profile"}>
+              <Link to={"/dashboard?tab=dash"}>
+                <Dropdown.Item>Dashboard</Dropdown.Item>
+              </Link>
+              <Link to={"/dashboard?tab=profile"}>
                 <Dropdown.Item>Profile</Dropdown.Item>
               </Link>
               <Dropdown.Divider />
-              <Link  onClick={handlesignout}>
+              <Link onClick={handlesignout}>
                 <Dropdown.Item>Sign Out</Dropdown.Item>
               </Link>
             </Dropdown>
