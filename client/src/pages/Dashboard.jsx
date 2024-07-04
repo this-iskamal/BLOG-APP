@@ -29,7 +29,7 @@ export default function Dashboard() {
       {tab === "posts" && <DashPosts />}
       {tab === "users" && <DashUsers />}
       {tab === "comments" && <DashComments />}
-      {tab === "dash"|| !tab && <DashboardComp />}
+      {(tab === "dash" || !tab) && <DashboardComp />}
     </div>
   );
 }
